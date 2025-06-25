@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt"> 
 <head>
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self'; frame-src 'none'; object-src 'none';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Olhos de Maputo | Fotografia Profissional</title>
@@ -1185,13 +1191,25 @@
 
   <!-- JavaScript -->
   <script>
-    // Mobile Menu Toggle
+    // Strict mode for safer JavaScript
+    'use strict';
+    
+    // Content Security Policy nonce (should be generated server-side)
+    const cspNonce = '<?php echo bin2hex(random_bytes(16)); ?>';
+    
+    // Mobile Menu Toggle with ARIA attributes
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
     
+    // Initialize ARIA attributes
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenuBtn.setAttribute('aria-controls', 'navLinks');
+    mobileMenuBtn.setAttribute('aria-label', 'Toggle navigation menu');
+    
     mobileMenuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+      const isExpanded = navLinks.classList.toggle('active') ? 'true' : 'false';
+      mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+      mobileMenuBtn.innerHTML = isExpanded === 'true' 
         ? '<i class="fas fa-times"></i>' 
         : '<i class="fas fa-bars"></i>';
     });
@@ -1206,52 +1224,137 @@
       }
     });
 
-    // Back to Top Button
+    // Back to Top Button with focus management
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         backToTop.classList.add('visible');
+        backToTop.setAttribute('tabindex', '0');
       } else {
         backToTop.classList.remove('visible');
+        backToTop.setAttribute('tabindex', '-1');
       }
     });
 
-    // Smooth Scrolling for Anchor Links
+    // Secure Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         
+        // Input validation
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (!targetElement) return;
+        
         // Close mobile menu if open
         if (navLinks.classList.contains('active')) {
           navLinks.classList.remove('active');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
           mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         }
         
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        // Secure scrolling
+        targetElement.scrollIntoView({
           behavior: 'smooth'
         });
+        
+        // Focus management for accessibility
+        targetElement.setAttribute('tabindex', '-1');
+        targetElement.focus();
       });
     });
 
-    // Form Submission
+    // Secure Form Submission with input sanitization
     const contactForm = document.querySelector('.contact-form-wrapper form');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        // Basic input sanitization
+        const sanitizeInput = (input) => {
+          return input.value.trim()
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        };
+        
+        const name = sanitizeInput(this.elements['name']);
+        const email = sanitizeInput(this.elements['email']);
+        const phone = sanitizeInput(this.elements['phone']);
+        const service = sanitizeInput(this.elements['service']);
+        const message = sanitizeInput(this.elements['message']);
+        
+        // Basic validation
+        if (!name || !email || !phone || !service) {
+          alert('Por favor, preencha todos os campos obrigatórios.');
+          return;
+        }
+        
+        // In a production environment, you would send this data securely to your server
+        console.log('Form data sanitized:', { name, email, phone, service, message });
+        
+        // Feedback to user
         alert('Obrigado por sua mensagem! Entraremos em contato em breve.');
         this.reset();
       });
     }
 
-    // Newsletter Form Submission
+    // Secure Newsletter Form Submission
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
       newsletterForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        const emailInput = this.querySelector('input[type="email"]');
+        const email = emailInput.value.trim();
+        
+        // Basic email validation
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          alert('Por favor, insira um endereço de email válido.');
+          return;
+        }
+        
+        // In production, you would send this securely to your server
+        console.log('Newsletter subscription:', email);
+        
         alert('Obrigado por assinar nossa newsletter!');
         this.reset();
       });
     }
+
+    // Secure Image Lazy Loading
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      img.addEventListener('load', () => {
+        img.removeAttribute('loading');
+      });
+    });
+
+    // Security logging (for debugging)
+    window.addEventListener('error', (e) => {
+      console.error('Security error:', e.message);
+      // In production, you might want to log this to your server
+    });
   </script>
+  <noscript>
+    <style>
+      .no-script-message {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #ff0000;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        z-index: 9999;
+      }
+    </style>
+    <div class="no-script-message">
+      <p>Para uma experiência completa, por favor ative o JavaScript no seu navegador.</p>
+    </div>
+  </noscript>
 </body>
 </html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <!-- Meta tags de segurança -->
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; object-src 'none'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Meta tags de SEO -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Olhos de Maputo | Fotografia Profissional em Maputo</title>
+  <meta name="description" content="Agência fotográfica moçambicana especializada em fotos profissionais, eventos, retratos e fotografia de produto em Maputo.">
+  <meta name="keywords" content="fotografia Maputo, agência fotográfica Moçambique, fotos profissionais, fotógrafo Maputo, casamentos Maputo">
+  <meta name="author" content="Olhos de Maputo">
+  <meta property="og:title" content="Olhos de Maputo | Fotografia Profissional em Maputo">
+  <meta property="og:description" content="Agência fotográfica moçambicana especializada em fotos profissionais, eventos, retratos e fotografia de produto em Maputo.">
+  <meta property="og:image" content="https://www.olhosdemaputo.com/imagens/logo-social.jpg">
+  <meta property="og:url" content="https://www.olhosdemaputo.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Olhos de Maputo | Fotografia Profissional em Maputo">
+  <meta name="twitter:description" content="Agência fotográfica moçambicana especializada em fotos profissionais, eventos, retratos e fotografia de produto em Maputo.">
+  <meta name="twitter:image" content="https://www.olhosdemaputo.com/imagens/logo-social.jpg">
+
+  <!-- Outras meta tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Pré-carregar imagens críticas -->
+  <link rel="preload" href="imagens/hero-bg.jpg" as="image">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="logo">Olhos de Maputo</a>
+        <button class="mobile-menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#inicio" class="nav-link">Início</a></li>
+          <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li class="nav-item"><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="main">
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Olhos de Maputo</h1>
+        <p class="hero-description">Captando a essência de cada momento com arte e sensibilidade</p>
+        <div class="hero-buttons">
+          <a href="#servicos" class="btn btn-primary">Nossos Serviços</a>
+          <a href="#contato" class="btn btn-secondary">Agende uma Sessão</a>
+        </div>
+      </div>
+      <div class="hero-overlay"></div>
+    </section>
+
+    <section id="sobre" class="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content">
+            <h2 class="about-title">Sobre nós</h2>
+            <p class="about-description">A Olhos de Maputo é uma agência fotográfica moçambicana dedicada a eternizar momentos com autenticidade, arte e sensibilidade. Fundada no coração da cidade de Maputo, a agência nasceu com a missão de transformar olhares em narrativas visuais que representam a diversidade cultural, social e humana do país.</p>
+            <p class="about-description">Especializada em fotografia editorial, de eventos, retratos, casamentos, publicidade e projetos documentais, a Olhos de Maputo se destaca pelo olhar atento e criativo de seus fotógrafos, que valorizam tanto a técnica quanto a emoção por trás de cada clique.</p>
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number">+500</span>
+                <span class="stat-label">Clientes Satisfeitos</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">+10</span>
+                <span class="stat-label">Anos de Experiência</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Dedicados à Qualidade</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image-wrapper">
+            <img src="imagens/medium-shot-people-with-camera.jpg" alt="Equipe da Olhos de Maputo trabalhando" class="about-image" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="services">
+      <div class="container">
+        <h2 class="services-title">Nossos serviços</h2>
+        <p class="services-subtitle">Descubra como podemos transformar seus momentos em memórias eternas</p>
+        
+        <ul class="services-list">
+          <li class="services-item">
+            <div class="service-image-wrapper">
+              <img src="imagens/um_produto.jpeg" alt="Fotografia de produto" loading="lazy">
+            </div>
+            <div class="service-content">
+              <h3 class="services-item-title">Fotografia de produto</h3>
+              <p class="services-item-description">Imagens profissionais que destacam os detalhes e qualidade dos seus produtos, ideais para catálogos, e-commerce e campanhas publicitárias.</p>
+              <ul class="service-features">
+                <li>Fundo branco ou cenário personalizado</li>
+                <li>Edição profissional</li>
+                <li>Destaque de características</li>
+              </ul>
+              <a href="#contato" class="btn btn-outline">Solicitar Orçamento</a>
+            </div>
+          </li>
+          
+          <li class="services-item">
+            <div class="service-image-wrapper">
+              <img src="imagens/evento.jpg" alt="Fotografia de evento" loading="lazy">
+            </div>
+            <div class="service-content">
+              <h3 class="services-item-title">Fotografia de evento</h3>
+              <p class="services-item-description">Cobertura completa de casamentos, conferências, festas corporativas e eventos sociais, capturando momentos espontâneos e emocionantes.</p>
+              <ul class="service-features">
+                <li>Cobertura completa ou por horas</li>
+                <li>Álbum físico e digital</li>
+                <li>Entrega rápida</li>
+              </ul>
+              <a href="#contato" class="btn btn-outline">Solicitar Orçamento</a>
+            </div>
+          </li>
+          
+          <li class="services-item">
+            <div class="service-image-wrapper">
+              <img src="imagens/retrato.jpg" alt="Fotografia de retrato" loading="lazy">
+            </div>
+            <div class="service-content">
+              <h3 class="services-item-title">Fotografia de retrato</h3>
+              <p class="services-item-description">Sessões personalizadas para indivíduos, famílias ou profissionais, em estúdio ou locação, com direção de arte especializada.</p>
+              <ul class="service-features">
+                <li>Retratos profissionais</li>
+                <li>Sessões familiares</li>
+                <li>Fotografia corporativa</li>
+              </ul>
+              <a href="#contato" class="btn btn-outline">Solicitar Orçamento</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contato" class="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2 class="contact-title">Entre em contato</h2>
+            <p class="contact-description">Estamos ansiosos para ouvir sobre seu projeto e como podemos ajudar a capturar seus momentos especiais.</p>
+            
+            <div class="contact-methods">
+              <div class="contact-method">
+                <i class="icon-location"></i>
+                <div>
+                  <h3>Endereço</h3>
+                  <p>Av. 25 de Setembro, 1234<br>Maputo, Moçambique</p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <i class="icon-phone"></i>
+                <div>
+                  <h3>Telefone</h3>
+                  <p>+258 84 123 4567<br>+258 21 123456</p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <i class="icon-email"></i>
+                <div>
+                  <h3>Email</h3>
+                  <p>info@olhosdemaputo.com<br>orçamentos@olhosdemaputo.com</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"><i class="icon-facebook"></i></a>
+              <a href="#" aria-label="Instagram"><i class="icon-instagram"></i></a>
+              <a href="#" aria-label="WhatsApp"><i class="icon-whatsapp"></i></a>
+            </div>
+          </div>
+          
+          <div class="contact-form-wrapper">
+            <form class="contact-form">
+              <div class="form-group">
+                <label for="nome" class="visually-hidden">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome completo" class="contact-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="visually-hidden">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" class="contact-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="telefone" class="visually-hidden">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="Telefone" class="contact-input">
+              </div>
+              
+              <div class="form-group">
+                <label for="servico" class="visually-hidden">Serviço de interesse</label>
+                <select id="servico" name="servico" class="contact-input">
+                  <option value="">Serviço de interesse</option>
+                  <option value="produto">Fotografia de Produto</option>
+                  <option value="evento">Fotografia de Evento</option>
+                  <option value="retrato">Fotografia de Retrato</option>
+                  <option value="casamento">Fotografia de Casamento</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="mensagem" class="visually-hidden">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Conte-nos sobre seu projeto" class="contact-textarea" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3 class="footer-logo">Olhos de Maputo</h3>
+          <p>Captando a essência de cada momento com arte e sensibilidade desde 2015.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-services">
+          <h3>Nossos Serviços</h3>
+          <ul>
+            <li><a href="#servicos">Fotografia de Produto</a></li>
+            <li><a href="#servicos">Fotografia de Evento</a></li>
+            <li><a href="#servicos">Fotografia de Retrato</a></li>
+            <li><a href="#servicos">Fotografia de Casamento</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h3>Contato</h3>
+          <p>info@olhosdemaputo.com</p>
+          <p>+258 84 123 4567</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="icon-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="icon-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="icon-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-text">&copy; 2025 Olhos de Maputo. Todos os direitos reservados.</p>
+        <div class="footer-legal">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Serviço</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>
